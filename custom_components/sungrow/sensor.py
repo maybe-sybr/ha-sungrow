@@ -52,6 +52,7 @@ from homeassistant.const import (
 
 from .const import (
     SUNGROW_ENERGY_GENERATION,
+    SUNGROW_ENERGY_CONSUMPTION,
     SUNGROW_GRID_FREQUENCY,
     SUNGROW_ARRAY1_ENERGY_GENERATION,
     SUNGROW_ARRAY2_ENERGY_GENERATION,
@@ -88,6 +89,13 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
     SensorEntityDescription(
         key=SUNGROW_ENERGY_GENERATION,
         name="Energy Generation",
+        native_unit_of_measurement=POWER_WATT,
+        device_class=DEVICE_CLASS_POWER,
+        state_class=STATE_CLASS_MEASUREMENT,
+    ),
+    SensorEntityDescription(
+        key=SUNGROW_ENERGY_CONSUMPTION,
+        name="Energy Consumption",
         native_unit_of_measurement=POWER_WATT,
         device_class=DEVICE_CLASS_POWER,
         state_class=STATE_CLASS_MEASUREMENT,
@@ -324,6 +332,8 @@ class SungrowSensor(CoordinatorEntity, SensorEntity):
         try:
             if sensor_type == SUNGROW_ENERGY_GENERATION:
                 state = self.coordinator.data.data["total_dc_power"]
+            elif sensor_type == SUNGROW_ENERGY_CONSUMPTION:
+                state = self.coordinator.data.data["load_power"]
             elif sensor_type == SUNGROW_ARRAY1_ENERGY_GENERATION:
                 state = (
                     self.coordinator.data.data["mppt_1_voltage"]
