@@ -29,6 +29,7 @@ from homeassistant.helpers.update_coordinator import (
 
 from homeassistant.const import (
     DEVICE_CLASS_ENERGY,
+    DEVICE_CLASS_POWER,
     DEVICE_CLASS_BATTERY,
     ATTR_DATE,
     ATTR_TIME,
@@ -88,21 +89,21 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
         key=SUNGROW_ENERGY_GENERATION,
         name="Energy Generation",
         native_unit_of_measurement=POWER_WATT,
-        device_class=DEVICE_CLASS_ENERGY,
-        state_class=STATE_CLASS_TOTAL,
+        device_class=DEVICE_CLASS_POWER,
+        state_class=STATE_CLASS_MEASUREMENT,
     ),
     SensorEntityDescription(
         key=SUNGROW_ARRAY1_ENERGY_GENERATION,
         name="PV Array 1 Energy Generation",
         native_unit_of_measurement=POWER_WATT,
-        device_class=DEVICE_CLASS_ENERGY,
+        device_class=DEVICE_CLASS_POWER,
         state_class=STATE_CLASS_MEASUREMENT,
     ),
     SensorEntityDescription(
         key=SUNGROW_ARRAY2_ENERGY_GENERATION,
         name="PV Array 2 Energy Generation",
         native_unit_of_measurement=POWER_WATT,
-        device_class=DEVICE_CLASS_ENERGY,
+        device_class=DEVICE_CLASS_POWER,
         state_class=STATE_CLASS_MEASUREMENT,
     ),
     SensorEntityDescription(
@@ -123,14 +124,14 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
         key=SUNGROW_LOAD_POWER,
         name="Current Load Power",
         native_unit_of_measurement=POWER_WATT,
-        device_class=DEVICE_CLASS_ENERGY,
+        device_class=DEVICE_CLASS_POWER,
         state_class=STATE_CLASS_MEASUREMENT,
     ),
     SensorEntityDescription(
         key=SUNGROW_EXPORT_POWER,
         name="Current Export Power",
         native_unit_of_measurement=POWER_WATT,
-        device_class=DEVICE_CLASS_ENERGY,
+        device_class=DEVICE_CLASS_POWER,
         state_class=STATE_CLASS_MEASUREMENT,
     ),
     SensorEntityDescription(
