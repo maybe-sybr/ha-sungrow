@@ -6,6 +6,6 @@
   "dependencies": [ ],
   "version": "0.1.5",
   "codeowners": [ "@mvandersteen" ],
-  "requirements": [ "SungrowInverter>=0.1.5" ],
+  "requirements": [ "git+https://github.com/maybe-sybr/SungrowInverter@modbus-web#sungrowinverter==0.2.1" ],
   "iot_class": "local_polling"
 }
