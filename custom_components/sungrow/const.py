@@ -26,6 +26,7 @@ SUNGROW_ARRAY2_CURRENT = "array2_current"
 
 SUNGROW_LOAD_POWER = "load_power"
 SUNGROW_EXPORT_POWER = "export_power"
+SUNGROW_BATTERY_POWER = "battery_power"
 
 SUNGROW_DAILY_IMPORT_ENERGY = "daily_import_energy"
 SUNGROW_TOTAL_IMPORT_ENERGY = "total_import_energy"
