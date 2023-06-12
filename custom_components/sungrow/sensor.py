@@ -61,6 +61,7 @@ from .const import (
     SUNGROW_LOAD_POWER,
     SUNGROW_EXPORT_POWER,
     SUNGROW_BATTERY_POWER,
+    SUNGROW_BATTERY_LEVEL,
     SUNGROW_DAILY_BATTERY_CHARGE_PV_ENERGY,
     SUNGROW_TOTAL_BATTERY_CHARGE_PV_ENERGY,
     SUNGROW_DAILY_BATTERY_CHARGE_GRID_ENERGY,
@@ -148,6 +149,13 @@ SENSOR_TYPES: tuple[SensorEntityDescription, ...] = (
         name="Current Battery Power",
         native_unit_of_measurement=POWER_WATT,
         device_class=DEVICE_CLASS_POWER,
+        state_class=STATE_CLASS_MEASUREMENT,
+    ),
+    SensorEntityDescription(
+        key=SUNGROW_BATTERY_LEVEL,
+        name="Current Battery Level",
+        native_unit_of_measurement=PERCENTAGE,
+        device_class=DEVICE_CLASS_BATTERY,
         state_class=STATE_CLASS_MEASUREMENT,
     ),
     SensorEntityDescription(

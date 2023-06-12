@@ -31,6 +31,8 @@ SUNGROW_BATTERY_POWER = "battery_power"
 SUNGROW_DAILY_IMPORT_ENERGY = "daily_import_energy"
 SUNGROW_TOTAL_IMPORT_ENERGY = "total_import_energy"
 
+SUNGROW_BATTERY_LEVEL = "battery_level"
+
 # Battery charged from PV
 SUNGROW_DAILY_BATTERY_CHARGE_PV_ENERGY = "daily_battery_charge_from_pv"
 SUNGROW_TOTAL_BATTERY_CHARGE_PV_ENERGY = "total_battery_charge_from_pv"
