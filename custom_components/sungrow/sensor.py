@@ -287,16 +287,14 @@ async def async_setup_platform(
     hass, config: ConfigType, async_add_entities, discovery_info=None
 ):
     """Set up the Jemena Outlook sensor."""
-
-    sungrowclient = await hass.async_add_executor_job(
-        partial(
-            SungrowInverter,
-            ip_address=config[CONF_IP_ADDRESS],
-            port=config[CONF_PORT],
-            slave=config[CONF_SLAVE],
-            retries=3,
-            timeout=int(config[CONF_TIMEOUT]),
-        )
+    # This will block the event loop, but pymodbus needs a running loop during
+    # init so we have to accept that for now
+    sungrowclient = SungrowInverter(
+        ip_address=config[CONF_IP_ADDRESS],
+        port=config[CONF_PORT],
+        slave=config[CONF_SLAVE],
+        retries=3,
+        timeout=int(config[CONF_TIMEOUT]),
     )
     # can preload the inverter details instead of this being done on first run
     await sungrowclient.inverter_model()
